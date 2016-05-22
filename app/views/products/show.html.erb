@@ -3,3 +3,5 @@
 <h3>Description: <%= @product.description %></h3>
 <h3>Price: $<%= @product.price %></h3>
 <h3><%= @product.image %></h3>
+<br>
+<h5><a href="/products/<% @product.id %>/edit">Edit <%= @product.name %></a></h5>

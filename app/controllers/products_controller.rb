@@ -23,7 +23,7 @@ class ProductsController < ApplicationController
   end
 
   def create
-    product = Product.create(
+    @product = Product.create(
       name: params[:name],
       description: params[:description],
       price: params[:price],
@@ -33,4 +33,20 @@ class ProductsController < ApplicationController
     redirect_to "/"
   end
 
+  def edit
+    @product = Product.find_by(id: params[:id])
+  end
+
+  def update
+    @product = Product.find_by(id: params[:id])
+
+    @product.update(
+      name: params[:name],
+      description: params[:description],
+      price: params[:price],
+      image: params[:image]
+      )
+
+    render 'show.html.erb'
+  end
 end
