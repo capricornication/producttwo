@@ -3,7 +3,34 @@ class ProductsController < ApplicationController
     @products = Product.all
   end
 
-  def single
-    @product = Product.first
-  end 
+  def show
+    @product = Product.find(params[:id])
+  end
+  # def single
+  #   @product = Product.first
+  # end 
+
+  # def query
+  #   @product = params[:message]
+  #   @product_message = params[:productmessage]
+  # end
+
+  # def url
+  #   @message = params[:wildcard]
+  # end
+
+  def new
+  end
+
+  def create
+    product = Product.create(
+      name: params[:name],
+      description: params[:description],
+      price: params[:price],
+      image: params[:image]
+      )
+
+    redirect_to "/"
+  end
+
 end
